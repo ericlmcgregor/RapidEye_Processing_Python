@@ -61,11 +61,11 @@ def ToRef(ScenePath, outpath, metadata):
         # Get Solar Zenith and convert to radians
         SolarZ = (90 - metadata["properties"]["sun_elevation"]) * 0.01745329
         # Apply TOA reflectance equation to each band
-        b1TOA = rad[0] * ((math.pi * esd ** 2) / 1997.8 * math.cos(SolarZ))
-        b2TOA = rad[1] * ((math.pi * esd ** 2) / 1863.5 * math.cos(SolarZ))
-        b3TOA = rad[2] * ((math.pi * esd ** 2) / 1560.4 * math.cos(SolarZ))
-        b4TOA = rad[3] * ((math.pi * esd ** 2) / 1395.0 * math.cos(SolarZ))
-        b5TOA = rad[4] * ((math.pi * esd ** 2) / 1124.4 * math.cos(SolarZ))
+        b1TOA = rad[0] * ((math.pi * esd ** 2) / eai_b1 * math.cos(SolarZ))
+        b2TOA = rad[1] * ((math.pi * esd ** 2) / eai_b2 * math.cos(SolarZ))
+        b3TOA = rad[2] * ((math.pi * esd ** 2) / eai_b3 * math.cos(SolarZ))
+        b4TOA = rad[3] * ((math.pi * esd ** 2) / eai_b4 * math.cos(SolarZ))
+        b5TOA = rad[4] * ((math.pi * esd ** 2) / eai_b5 * math.cos(SolarZ))
         # List bands
         final = [b1TOA, b2TOA, b3TOA, b4TOA, b5TOA]
         # Update metadata (additional meta updates needed?)
